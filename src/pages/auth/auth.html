@@ -1,16 +1,31 @@
 <ion-content padding>
-  <ion-list>
+  <div class="logo">
+    <img src="assets/img/logo.png" alt="imageShack">
+  </div>
 
+  <form [formGroup]="loginForm"
+        novalidate
+        (ngSubmit)="onSubmit(loginForm)">
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" formControlName="user"></ion-input>
     </ion-item>
+    <p class="caution">{{ formErrors.user }}</p>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
+      <ion-input type="password" formControlName="password"></ion-input>
 
-  </ion-list>
-  <button ion-button color="secondary">Login</button>
+    </ion-item>
+    <p class="caution">{{ formErrors.password }}</p>
+
+    <p text-center>
+      <button ion-button color="secondary" type="submit">Login</button>
+    </p>
+  </form>
+
+  <p class="signup-message">
+    <span>Don't have an account?</span>
+    <a ion-button small href="https://imageshack.com/signup" target="_blank">Sign up</a>
+  </p>
 </ion-content>

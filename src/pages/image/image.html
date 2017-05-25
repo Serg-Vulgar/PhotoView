@@ -1,0 +1,22 @@
+<ion-header no-border padding>
+  <button ion-button icon-only clear (click)="goBack()">
+    <ion-icon name="ios-arrow-back"></ion-icon>
+  </button>
+  <span>{{ image.filename }}</span>
+</ion-header>
+
+<ion-content padding>
+
+  <!--<ul class="images-grid">-->
+    <!--<li *ngFor="let image of images">-->
+      <img [src]="'http://' + image.direct_link">
+<p>File name: {{ image.filename }}</p>
+<p>Object name: {{ image.title }}</p>
+      <!--<a class="select" href="#">-->
+        <!--<ion-icon name="ios-checkmark"></ion-icon>-->
+        <!--<span>Select</span>-->
+      <!--</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+</ion-content>

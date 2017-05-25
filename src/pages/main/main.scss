@@ -1,0 +1,29 @@
+page-main {
+  .tabbar {
+    top: 0 !important;
+    background-color: #fff !important;
+    box-shadow: none;
+    border-bottom: 1px solid #d5d5d5;
+    padding-top: 12px;
+    justify-content: center;
+    .tab-button {
+      border: 1px solid #d5d5d5;
+      display: inline-block;
+      flex: initial;
+      bottom: -1px;
+      z-index: 2;
+      opacity: 1;
+      min-height: 2.5rem;
+      padding: 8px 14px !important;
+      margin: 0 4px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      &[aria-selected=true] {
+        border-bottom: 1px solid #fff !important;
+      }
+    }
+    &:after {
+      background-image: none !important;
+    }
+  }
+}

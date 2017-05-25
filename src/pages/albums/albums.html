@@ -1,0 +1,18 @@
+<ion-header no-border padding>
+  <p>Welcome</p>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let album of albums" (click)="openAlbum(album)">
+      <ion-thumbnail item-left>
+        <img [src]="album.images.length ? 'http://' + album.images[0].direct_link : ''">
+      </ion-thumbnail>
+      <h2>{{ album.title }}</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <button ion-button icon-only item-right clear>
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

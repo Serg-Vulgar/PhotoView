@@ -1,0 +1,38 @@
+auth {
+  .scroll-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f6f6f6;
+  }
+
+  .logo {
+    width: 60%;
+    text-align: center;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  form {
+    padding: 16px 16px 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    .item {
+      padding: 0;
+    }
+    .caution {
+      margin: 2px 0 0;
+      color: #ff6071;
+    }
+  }
+  .signup-message {
+    span, a {
+      vertical-align: middle;
+    }
+  }
+}

@@ -3,32 +3,54 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MyApp } from './app.component';
-import { GalleriesListPage } from '../pages/home/home';
+
+import { MainPage } from '../pages/main/main';
+import { UploadPage } from '../pages/upload/upload';
+import { AlbumsPage } from '../pages/albums/albums';
+import { AlbumPage } from '../pages/album/album';
+import { ImagePage } from '../pages/image/image';
 import { AuthPage } from '../pages/auth/auth';
-import { APIService } from '../services/APIservice';
+
+import { APIService } from '../services/API.service';
+import { userService } from '../services/user.service';
 
 @NgModule({
   declarations: [
     MyApp,
     AuthPage,
-    GalleriesListPage
+    AlbumsPage,
+    AlbumPage,
+    ImagePage,
+    MainPage,
+    UploadPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      mode: 'md'
+    }),
+    HttpModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     AuthPage,
-    GalleriesListPage
+    AlbumsPage,
+    AlbumPage,
+    ImagePage,
+    MainPage,
+    UploadPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     APIService,
+    userService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
