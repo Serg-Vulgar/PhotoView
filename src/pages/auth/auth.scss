@@ -10,6 +10,7 @@ auth {
   .logo {
     width: 60%;
     text-align: center;
+    margin-bottom: 20px;
     img {
       max-width: 100%;
       height: auto;
@@ -35,4 +36,12 @@ auth {
       vertical-align: middle;
     }
   }
+
+  .enter-button {
+    background-color: #8ac724;
+    &:hover {
+      background-color: #666 !important;
+    }
+  }
+
 }

@@ -1,4 +1,4 @@
-<ion-header no-border padding>
+<ion-header padding>
   <button ion-button icon-only clear (click)="goBack()">
     <ion-icon name="ios-arrow-back"></ion-icon>
     <ion-icon name="folder"></ion-icon>
@@ -9,15 +9,33 @@
 <ion-content padding>
   <!--<img [src]="'http://' + image.direct_link" *ngFor="let image of images">-->
 
-
   <ul class="images-grid">
-    <li *ngFor="let image of images">
-      <img [src]="'http://' + image.direct_link">
+    <li *ngFor="let image of images" (mouseover)="showTooltip(image)">
+      <div class="image">
+        <img [src]="image.link">
+        <a class="select" href="#" (click)="openImage(image)">
+          <ion-icon name="ios-checkmark"></ion-icon>
+          <span>Select</span>
+        </a>
+      </div>
+      <div class="tooltip-text">
 
-      <a class="select" href="#" (click)="openImage(image)">
-        <ion-icon name="ios-checkmark"></ion-icon>
-        <span>Select</span>
-      </a>
+        <ion-row>
+          <ion-col col-5>Image name:</ion-col>
+          <ion-col col-7>{{ image.name }}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>Image size:</ion-col>
+          <ion-col col-7>{{ image.width + 'X' + image.height }}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>Description:</ion-col>
+          <ion-col col-7>{{ image.description }}</ion-col>
+        </ion-row>
+
+      </div>
     </li>
   </ul>
 

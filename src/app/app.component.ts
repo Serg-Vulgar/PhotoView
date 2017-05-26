@@ -10,7 +10,7 @@ import { MainPage } from '../pages/main/main';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = MainPage;
+  rootPage: any = AuthPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

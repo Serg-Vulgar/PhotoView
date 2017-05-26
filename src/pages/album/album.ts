@@ -19,21 +19,23 @@ export class AlbumPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.params);
     this.album = this.params.data['album'];
+    console.log(this.album);
     this.getAlbum(this.album['id'])
   }
 
   getAlbum(albumId) {
     this.API.getAlbum(albumId)
       .subscribe((res) => {
-        console.log(res);
-        this.images = res.result.images;
+        this.images = res.data.images;
+        console.log(this.images);
       })
   }
 
+  showTooltip(image) {
+  }
+
   openImage(image) {
-    console.log(image);
     this.navCtrl.push(ImagePage, {
       image: image
     });

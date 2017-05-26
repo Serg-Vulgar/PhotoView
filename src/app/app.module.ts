@@ -16,7 +16,7 @@ import { ImagePage } from '../pages/image/image';
 import { AuthPage } from '../pages/auth/auth';
 
 import { APIService } from '../services/API.service';
-import { userService } from '../services/user.service';
+import { UserService } from '../services/user.service';
 
 @NgModule({
   declarations: [
@@ -50,9 +50,10 @@ import { userService } from '../services/user.service';
     StatusBar,
     SplashScreen,
     APIService,
-    userService,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
+
 export class AppModule {
 }

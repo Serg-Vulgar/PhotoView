@@ -1,24 +1,38 @@
 page-album {
-  .header {
-    top: 56px;
+  .scroll-content {
+    margin-top: 102px !important;
   }
+
   .images-grid {
     text-align: center;
     padding: 0;
+    margin: 0;
     li {
       vertical-align: top;
-      background-color: #f3f3f3;
-      overflow: hidden;
       display: inline-flex;
       text-align: center;
       width: 20vw;
       height: 22vw;
       margin: 1vw;
-      border-radius: 6px;
       position: relative;
-      -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
-      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+      &:hover {
+        .tooltip-text {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      .image {
+        background-color: #f3f3f3;
+        border-radius: 6px;
+        -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        text-align: center;
+        width: 100%;
+      }
       img {
         width: 100%;
         max-width: 100%;
@@ -46,6 +60,38 @@ page-album {
         }
         span {
           text-decoration: underline;
+        }
+      }
+      .tooltip-text {
+        width: 100%;
+        visibility: hidden;
+        background-color: #555;
+        color: #fff;
+        text-align: left;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        margin-top: 5px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        font-size: 1.2rem;
+        .row {
+          margin: 2px 0;
+        }
+        .col {
+          padding: 0 4px;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent transparent #555 transparent;
         }
       }
     }
