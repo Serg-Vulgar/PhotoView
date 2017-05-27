@@ -14,12 +14,18 @@ page-main {
       z-index: 2;
       opacity: 1;
       min-height: 2.5rem;
-      padding: 8px 14px !important;
-      margin: 0 4px;
+      padding: 6px 16px !important;
+      margin: 0 3px;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+      .icon {
+        color: rgba(7, 91, 180, 0.4);
+      }
       &[aria-selected=true] {
         border-bottom: 1px solid #fff !important;
+        .icon {
+          color: #075bb4;
+        }
       }
     }
     &:after {

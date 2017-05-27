@@ -22,24 +22,6 @@ export class APIService {
     return new RequestOptions({headers: headers});
   }
 
-// login user
-//   login(user): Observable<any> {
-//     let requestOptions = new RequestOptions();
-//     requestOptions.params = user;
-//
-//     return this.http.post(this.apiUrl + 'user/login?' + this.apiKey + '&auth_token=7f42c0264e726513a4a66a880f6c57a0', requestOptions, this.getHeaders())
-//       .map((response: Response) => {
-//         let res = response.json();
-//
-//         // this.user = {
-//         //   name: res.result.username,
-//         //   auth_token: res.result.auth_token
-//         // };
-//
-//         this.userService.saveUser(this.user);
-//       });
-//   }
-
   getAlbums() {
     return this.http.get(this.apiUrl + this.userAlias + '/albums', this.getHeaders())
       .map((response: Response) => {

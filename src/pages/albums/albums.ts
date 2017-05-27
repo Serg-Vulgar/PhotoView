@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { APIService } from '../../services/API.service';
 
 import { AlbumPage } from '../album/album';
@@ -11,46 +11,44 @@ import { AlbumPage } from '../album/album';
 export class AlbumsPage implements OnInit {
   albums: Array<Object>;
   userName;
+  loading;
 
   constructor(private navCtrl: NavController,
+              private loadingCtrl: LoadingController,
               private API: APIService) {
-
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
   }
 
   ngOnInit() {
-    console.log(this.API);
-    // this.getAlbums();
+    this.getAlbums();
     this.userName = this.API.userAlias;
+  }
+
+  getAlbums(){
+    this.showLoading();
     this.API.getAlbums()
       .subscribe((res) => {
         console.log(res);
         this.albums = res.data;
         // console.log('Albums', this.albums);
+        this.hideLoading();
       })
   }
-
-  // getAlbums() {
-  //   let params = {
-  //     show_private: true,
-  //     image_limit: 1
-  //   };
-  //   this.API.getAlbums(params)
-  //     .subscribe((res) => {
-  //       this.albums = res.result.albums;
-  //       console.log('Albums', this.albums);
-  //     })
-  // }
-
-  // openAlbum(album) {
-  //   this.navCtrl.push(AlbumPage, {
-  //     album: album
-  //   });
-  // }
 
   openAlbum(album) {
     this.navCtrl.push(AlbumPage, {
       album: album
     });
+  }
+
+  showLoading() {
+    this.loading.present();
+  }
+
+  hideLoading() {
+    this.loading.dismiss();
   }
 
 }

@@ -1,16 +1,17 @@
 <ion-header padding>
   <button ion-button icon-only clear (click)="goBack()">
     <ion-icon name="ios-arrow-back"></ion-icon>
-    <ion-icon name="folder"></ion-icon>
   </button>
-  <span>{{ album.title }}</span>
+  <ion-icon name="folder"></ion-icon>
+
+  <span class="title">{{ album.title }}</span>
 </ion-header>
 
 <ion-content padding>
   <!--<img [src]="'http://' + image.direct_link" *ngFor="let image of images">-->
 
   <ul class="images-grid">
-    <li *ngFor="let image of images" (mouseover)="showTooltip(image)">
+    <li *ngFor="let image of images">
       <div class="image">
         <img [src]="image.link">
         <a class="select" href="#" (click)="openImage(image)">
@@ -26,11 +27,11 @@
         </ion-row>
 
         <ion-row>
-          <ion-col col-5>Image size:</ion-col>
-          <ion-col col-7>{{ image.width + 'X' + image.height }}</ion-col>
+          <ion-col col-5>Image resolution:</ion-col>
+          <ion-col col-7>{{ image.width + ' x ' + image.height }}</ion-col>
         </ion-row>
 
-        <ion-row>
+        <ion-row *ngIf="image.description">
           <ion-col col-5>Description:</ion-col>
           <ion-col col-7>{{ image.description }}</ion-col>
         </ion-row>
@@ -38,5 +39,9 @@
       </div>
     </li>
   </ul>
+
+  <ion-infinite-scroll (ionInfinite)="showMoreImages($event)" [enabled]="allImages?.length !== images?.length">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>

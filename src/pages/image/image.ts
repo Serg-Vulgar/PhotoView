@@ -7,7 +7,8 @@ import { APIService } from '../../services/API.service';
   templateUrl: 'image.html'
 })
 export class ImagePage implements OnInit {
-image: Object;
+  image: Object;
+
   constructor(private navCtrl: NavController,
               public params: NavParams,
               private API: APIService) {
@@ -21,4 +22,5 @@ image: Object;
   goBack() {
     this.navCtrl.pop();
   }
+
 }

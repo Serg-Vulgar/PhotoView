@@ -1,3 +1,26 @@
 <ion-content padding>
-  Upload image
+
+  <div class="drop">
+    <ion-list>
+      <ion-item>
+        <ion-label>Select a folder</ion-label>
+        <ion-select [(ngModel)]="targetAlbum"
+                    (ionChange)="changeTargetAlbum($event)">
+          <ion-option value="{{ album.id }}"
+                      *ngFor="let album of albums">
+            {{ album.title }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+
+    <div class="drop-area">
+      <div class="overlay" *ngIf="!targetAlbum"></div>
+      <dropzone [config]="dropzoneConfig"
+                [message]="'Drop files or browse to upload'">
+      </dropzone>
+    </div>
+  </div>
+
 </ion-content>

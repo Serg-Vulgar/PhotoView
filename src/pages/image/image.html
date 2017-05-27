@@ -2,21 +2,23 @@
   <button ion-button icon-only clear (click)="goBack()">
     <ion-icon name="ios-arrow-back"></ion-icon>
   </button>
-  <span>{{image.name }}</span>
+  <span class="title">{{ image.name }}</span>
 </ion-header>
 
 <ion-content padding>
+  <div class="image">
+    <img [src]="image.link">
+  </div>
 
-  <!--<ul class="images-grid">-->
-  <!--<li *ngFor="let image of images">-->
-  <img [src]="image.link">
-
-  <p>Image name: {{ image.name }}</p>
-  <!--<a class="select" href="#">-->
-  <!--<ion-icon name="ios-checkmark"></ion-icon>-->
-  <!--<span>Select</span>-->
-  <!--</a>-->
-  <!--</li>-->
-  <!--</ul>-->
+  <div class="info">
+    <p>Image name: {{ image.name }}</p>
+    <p>Image resolution: {{ image.width + 'x' + image.height }}</p>
+    <div *ngIf="image.tags.length">
+      <p>Keywords:</p>
+      <ul>
+        <li *ngFor="let tag of image.tags">{{ tag }}</li>
+      </ul>
+    </div>
+  </div>
 
 </ion-content>

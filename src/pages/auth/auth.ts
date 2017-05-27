@@ -37,7 +37,8 @@ export class AuthPage implements OnInit {
 
   ngOnInit() {
     // this.createForm();
-    this.userService.checkUser();
+    let user = this.userService.checkUser();
+    if (user) this.navCtrl.push(MainPage);
   }
 
   // createForm(): void {

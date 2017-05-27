@@ -1,0 +1,53 @@
+page-upload {
+  .drop {
+    max-width: 800px;
+    margin: auto;
+  }
+  .drop-area {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(147, 147, 147, 0.5);
+      z-index: 2;
+    }
+    .dz-wrapper {
+      position: static !important;
+    }
+    .dz-started .dz-message .dz-text {
+      display: none;
+    }
+    .dz-message {
+      position: absolute !important;
+      width: 100%;
+      height: 100%;
+      max-height: none !important;
+      display: block !important;
+      border: 3px dashed rgba(7, 91, 180, 0.4) !important;
+      border-radius: 5px;
+      .dz-text {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    .dz-preview {
+      margin: 8px !important;
+      width: 200px !important;
+      height: 200px !important;
+      background-color: #fff !important;
+      border-radius: 6px;
+      -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.75);
+    }
+    .dz-upload {
+      background-color: #81ce75 !important;
+    }
+  }
+}

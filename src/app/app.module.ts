@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
+
 import { MyApp } from './app.component';
 
 import { MainPage } from '../pages/main/main';
@@ -17,6 +19,7 @@ import { AuthPage } from '../pages/auth/auth';
 
 import { APIService } from '../services/API.service';
 import { UserService } from '../services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { UserService } from '../services/user.service';
     IonicModule.forRoot(MyApp, {
       mode: 'md'
     }),
+    DropzoneModule.forRoot(),
     HttpModule,
     ReactiveFormsModule
   ],

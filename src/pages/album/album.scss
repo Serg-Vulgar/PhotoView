@@ -6,19 +6,20 @@ page-album {
   .images-grid {
     text-align: center;
     padding: 0;
-    margin: 0;
+    margin: auto;
+
     li {
       vertical-align: top;
       display: inline-flex;
       text-align: center;
-      width: 20vw;
-      height: 22vw;
-      margin: 1vw;
+      width: 200px;
+      height: 220px;
+      margin: 10px;
       position: relative;
       &:hover {
         .tooltip-text {
           visibility: visible;
-          opacity: 1;
+          opacity: 0.8;
         }
       }
       .image {
@@ -45,7 +46,7 @@ page-album {
         position: absolute;
         bottom: 0;
         width: 100%;
-        color: #548aee;
+        color: #075bb4;
         background-color: #f3f3f3;
         text-align: left;
         padding: 2px 6px;
@@ -68,7 +69,7 @@ page-album {
         background-color: #555;
         color: #fff;
         text-align: left;
-        border-radius: 6px;
+        border-radius: 2px;
         padding: 5px 0;
         position: absolute;
         z-index: 1;
