@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { AlbumsPage } from '../albums/albums';
 import { UploadPage } from '../upload/upload';
 
@@ -12,11 +11,8 @@ export class MainPage {
   tab2: any;
 
   constructor() {
-
     this.tab1 = AlbumsPage;
     this.tab2 = UploadPage;
-
   }
-
 
 }

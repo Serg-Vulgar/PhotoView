@@ -16,9 +16,6 @@ export class AlbumsPage implements OnInit {
   constructor(private navCtrl: NavController,
               private loadingCtrl: LoadingController,
               private API: APIService) {
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
   }
 
   ngOnInit() {
@@ -26,14 +23,19 @@ export class AlbumsPage implements OnInit {
     this.userName = this.API.userAlias;
   }
 
-  getAlbums(){
+  ionViewDidEnter() {
+    if (this.API.imageUploaded) {
+      this.getAlbums();
+    }
+  }
+
+  getAlbums() {
     this.showLoading();
     this.API.getAlbums()
       .subscribe((res) => {
-        console.log(res);
         this.albums = res.data;
-        // console.log('Albums', this.albums);
         this.hideLoading();
+        this.API.imageUploaded = false;
       })
   }
 
@@ -44,6 +46,9 @@ export class AlbumsPage implements OnInit {
   }
 
   showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
     this.loading.present();
   }
 

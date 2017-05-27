@@ -18,7 +18,6 @@ export class UserService {
   }
 
   saveUser(user) {
-    console.log(user);
     localStorage.setItem('PhotoViewUser', user);
   }
 

@@ -15,7 +15,6 @@ export class ImagePage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.params);
     this.image = this.params.data['image'];
   }
 

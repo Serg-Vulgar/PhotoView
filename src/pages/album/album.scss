@@ -3,6 +3,12 @@ page-album {
     margin-top: 102px !important;
   }
 
+  .infinite-scroll {
+    height: 100%;
+    &.hide {
+      display: none;
+    }
+  }
   .images-grid {
     text-align: center;
     padding: 0;

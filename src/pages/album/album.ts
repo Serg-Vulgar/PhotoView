@@ -35,7 +35,6 @@ export class AlbumPage implements OnInit {
       .subscribe((res) => {
         this.allImages = res.data.images;
         this.images = this.getImages(0, 9);
-        console.log(this.images);
         this.hideLoading();
       })
   }
@@ -66,9 +65,11 @@ export class AlbumPage implements OnInit {
   }
 
   showMoreImages(infiniteScroll) {
-    let newImages = this.getImages(this.imageLastIndex, this.imageLastIndex + 9);
-    this.images.push(...newImages);
-    infiniteScroll.complete();
+    setTimeout(() => {
+      let newImages = this.getImages(this.imageLastIndex, this.imageLastIndex + 9);
+      this.images.push(...newImages);
+      infiniteScroll.complete();
+    }, 300)
   }
 
 }
