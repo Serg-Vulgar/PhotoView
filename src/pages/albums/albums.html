@@ -6,7 +6,9 @@
   <ion-list>
     <ion-item *ngFor="let album of albums" (click)="openAlbum(album)">
       <ion-thumbnail item-left>
-        <img [src]="'http://i.imgur.com/' + album.cover + '.jpg'">
+        <img [src]="album.cover ?
+        'http://i.imgur.com/' + album.cover + '.jpg' :
+        'assets/img/no-image.png'">
       </ion-thumbnail>
       <h2>{{ album.title }}</h2>
 

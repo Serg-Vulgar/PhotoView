@@ -9,7 +9,9 @@
 
 <ion-content padding>
 
-  <ul class="images-grid">
+  <p *ngIf="!album.images_count" text-center>This album are empty</p>
+
+  <ul class="images-grid" *ngIf="album.images_count">
     <li *ngFor="let image of images">
       <div class="image">
         <img [src]="image.link">
