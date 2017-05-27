@@ -19,17 +19,16 @@ export class AuthPage {
               private userService: UserService) {
   }
 
-
   openAlbums() {
     let that = this;
     let accessToken;
     let userAlias;
     OAuth.initialize('U3IeFTm4pPlPEH7MEUtCRqC9UpE');
     OAuth.popup('imgur')
-      .done(function (result) {
+      .done((result) => {
         accessToken = result.access_token;
         result.me()
-          .done(function (data) {
+          .done((data) => {
             userAlias = data.alias;
             that.API['accessToken'] = accessToken;
             that.API['userAlias'] = userAlias;
@@ -40,6 +39,12 @@ export class AuthPage {
             that.userService.saveUser(JSON.stringify(user));
             that.navCtrl.push(MainPage);
           })
+          .fail((err) => {
+            console.log('me', err);
+          });
+      })
+      .fail((err) => {
+        console.log('imgur', err);
       });
   }
 }
